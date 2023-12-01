@@ -35,10 +35,12 @@ class ProductController extends Controller
      */
     public function store(storeProductRequest $request)
     {
+
+        $fileName = $request->file('image')->getClientOriginalName();
+
+        $request->merge(['image' => $fileName]);
+
         try {
-            $fileName = $request->file('image')->getClientOriginalName();
-            $request->file('image')->storeAs('public/images', $fileName);
-            $request->merge(['image' => $fileName]);
             $dataInsert = [
                 'name' => $request->name,
                 'price' => $request->price,

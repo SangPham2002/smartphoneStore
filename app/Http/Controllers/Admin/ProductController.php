@@ -34,43 +34,42 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(storeProductRequest $request)
-{
-    try {
-        // Kiểm tra và xử lý ảnh chính
-        if ($request->hasFile('image')) {
-            $product = new Product($request->all());
-            $image = $request->file('image');
-            $imageName = $request->productname . '_' . $image->hashName();
-            $product->image = $image->storeAs('images/products', $imageName);
-            $product->save();
-        }
+    {
+        try {
+            $fileName = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('public/images', $fileName);
+            $request->merge(['image' => $fileName]);
+            $dataInsert = [
+                'name' => $request->name,
+                'price' => $request->price,
+                'sale_price' => $request->sale_price,
+                'image' => $fileName,
+                'category_id' => $request->category_id,
+                'slug' => $request->price,
+                'description' => $request->description,
+                'stock' => $request->stock,
+            ];
+            // dd($dataInsert);
+            $product = Product::create($dataInsert);
 
-        // Kiểm tra và xử lý ảnh phụ
-        if ($request->hasFile('images')) {
-            $product = isset($product) ? $product : Product::create($request->all());
+            if ($product && $request->hasFile('images')) {
+                foreach ($request->file('images') as $value) {
+                    $imagePath = $value->getClientOriginalName();
+                    $value->storeAs('public/images', $imagePath);
 
-            $mainImage = $request->file('image');
-            $mainImageFileName = $mainImage->getClientOriginalName();
-            $mainImage->storeAs('images/products', $mainImageFileName);
-            $request->merge(['image' => $mainImageFileName]);
-
-            foreach ($request->file('images') as $image) {
-                $fileName = $image->getClientOriginalName();
-                $image->storeAs('images/products', $fileName);
-
-                ImgProduct::create([
-                    'product_id' => $product->id,
-                    'image' => $fileName
-                ]);
+                    ImgProduct::create([
+                        'product_id' => $product->id,
+                        'image' => $imagePath,
+                    ]);
+                }
             }
+        } catch (\Exception $e) {
+            // Xử lý lỗi nếu có
+            dd($e);
         }
-    } catch (\Exception $e) {
-        // Xử lý lỗi nếu có
-        // return redirect()->back()->withInput()->withErrors(['error' => $e->getMessage()]);
-    }
 
-    return redirect()->route('product.index')->with('success', 'Thêm mới thành công!');
-}
+        return redirect()->route('product.index')->with('success', 'Thêm mới thành công!');
+    }
 
 
     /**
@@ -83,7 +82,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Product $product)
     {
         $product = Product::all();
         $categories = Category::all();

@@ -42,7 +42,7 @@
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $item->name }}</td>
                                         <td>
-                                            <img src="{{ asset('/storage/app/' . $item->image) }}" alt=""
+                                            <img src="{{ asset('/public/images' . $item->image) }}" alt=""
                                                 width="150px">
                                         </td>
                                         <td>{{ number_format($item->price) }}₫</td>

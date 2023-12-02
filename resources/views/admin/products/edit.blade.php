@@ -7,20 +7,19 @@
             <div class="mt-5">
                 <h4 class="header-title mb-3">@yield('titlePage')</h4>
                 <div class="mb-4">
-                    <form class="form-validation" method="POST" action=""
+                    <form class="form-validation" method="POST" action="{{ Route('product.update', $products, $category) }}"
                         enctype="multipart/form-data">
-                        
+                        @method('PUT')
                         @csrf
+                        <input type="hidden" name="id" value="{{ $products->id }}">
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-md-4 form-control-label">Tên Sản Phẩm<span
                                     class="text-danger">*</span></label>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" id="productName" name="name"
                                     placeholder="Tên Sản Phẩm" onkeyup="ChangeToSlug()"
-                                    value="">
-                                @error('name')
-                                    is-invalid
-                                @enderror
+                                    value="{{ old('name') ? old('name') : $products->name }}" >
+                               
                             </div>
                         </div>
                         @error('name')

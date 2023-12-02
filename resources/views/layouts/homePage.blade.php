@@ -122,9 +122,9 @@
                                 <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab"
                                         data-bs-target="#newarrivals">Sản Phẩm Mới</button>
                                 </li>
-                                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
+                                {{-- <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#toprated">Top Bán Chạy</button>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
                                         data-bs-target="#featured">Đặc Sắc</button>
                                 </li>

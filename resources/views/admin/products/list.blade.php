@@ -42,7 +42,7 @@
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $item->name }}</td>
                                         <td>
-                                            <img src="{{ asset('/public/images' . $item->image) }}" alt=""
+                                            <img src="{{ asset('/storage/images/' . $item->image) }}" alt=""
                                                 width="150px">
                                         </td>
                                         <td>{{ number_format($item->price) }}₫</td>
@@ -68,15 +68,16 @@
                                                             class="fas fa-times"></i></button>
                                                 </form>
                                             </div>
-
                                         </td>
-
                                     </tr>
                                 @empty
                                     <h1>Không có dữ liệu</h1>
                                 @endforelse
+                              
                             </tbody>
+                            
                         </table>
+                        {{ $products->links() }}
                     </div>
                 </div>
             </div>

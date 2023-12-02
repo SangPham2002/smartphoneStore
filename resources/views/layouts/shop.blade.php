@@ -114,7 +114,8 @@
                         <div class="pro-pagination-style text-center text-lg-end" data-aos="fade-up" data-aos-delay="200">
                             <div class="pages">
                                 <ul>
-                                    @foreach ($products as $item)
+                                    {{$products->links()}}
+                                    {{-- @foreach ($products as $item)
                                         @if ($item == App\Models\Product::paginate(1))
                                             <li class="li"><a class="page-link"><i class="fa fa-angle-left"></i></a>
                                             </li>
@@ -123,7 +124,7 @@
                                             <li class="li"><a class="page-link"><i class="fa fa-angle-right"></i></a>
                                             </li>
                                         @endif
-                                    @endforeach
+                                    @endforeach --}}
                                 </ul>
                             </div>
                         </div>

@@ -101,7 +101,7 @@
                 <li class="dropdown notification-list">
                     <a class="nav-link dropdown-toggle nav-user mr-0" data-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="{{ asset('assetss') }}\images\users\avatar-1.jpg" alt="user-image"
+                        <img src="{{asset('storage/images/'  . Auth::user()->avatar)}}" alt="user-image"
                             class="rounded-circle">
                         <span class="pro-user-name ml-1">
                             {{ Auth::user()->name }}<i class="mdi mdi-chevron-down"></i>
@@ -191,7 +191,7 @@
 
             <div class="user-box">
                 <div class="float-left">
-                    <img src="{{ asset('assetss') }}\images\users\avatar-1.jpg" alt=""
+                    <img src="{{asset('storage/images/'  . Auth::user()->avatar)}}" alt=""
                         class="avatar-md rounded-circle">
                 </div>
                 <div class="user-info">

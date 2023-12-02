@@ -62,12 +62,9 @@
                             <div class="col-md-7">
                                 <input type="text" class="form-control" id="inputEmail3" name="price"
                                     placeholder="Giá Sản Phẩm">
-                                @error('price')
-                                    is-invalid
-                                @enderror
                             </div>
                         </div>
-                        @error('name')
+                        @error('price')
                             <div class="alert alert-icon alert-warning text-warning alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">×</span>
@@ -77,25 +74,14 @@
                             </div>
                         @enderror
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-md-4 form-control-label">Giá Khuyến Mãi<span
-                                    class="text-danger">*</span></label>
+                            <label for="inputEmail3" class="col-md-4 form-control-label">Giá Khuyến Mãi</label>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" id="inputEmail3" name="sale_price"
                                     placeholder="Giá khuyến mãi">
-                                @error('price')
-                                    is-invalid
-                                @enderror
+                                
                             </div>
                         </div>
-                        @error('name')
-                            <div class="alert alert-icon alert-warning text-warning alert-dismissible fade show" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                                <i class="mdi mdi-alert mr-1"></i>
-                                <strong>Thất Bại!</strong>{{ $message }}
-                            </div>
-                        @enderror
+                     
                         <div class="form-group row">
                             <label class="col-md-4 form-control-label">Danh Mục</label>
                             <div class="col-md-7">
@@ -111,32 +97,21 @@
                             <label class="col-md-4 form-control-label">Đường dẫn Slug</label>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" id="slug" name="slug" readonly>
-                                @error('name')
-                                    is-invalid
-                                @enderror
+                               
                             </div>
                         </div>
-                        @error('name')
-                            <div class="alert alert-icon alert-warning text-warning alert-dismissible fade show"
-                                role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                                <i class="mdi mdi-alert mr-1"></i>
-                                <strong>Thất Bại!</strong>{{ $message }}
-                            </div>
-                        @enderror
+                      
                         <div class="mt-3">
                             <div class="form-group row">
                                 <label for="inputEmail3" class="col-md-4 form-control-label">Trạng Thái</label>
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="customRadio1" name="stock" class="custom-control-input"
-                                        value="1" checked='checked'>
+                                        value="1" >
                                     <label class="px-1 custom-control-label" for="customRadio1">Đặc Sắc</label>
                                 </div>
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="customRadio2" name="stock" class="custom-control-input"
-                                        value="0">
+                                        value="0" checked='checked'>
                                     <label class="custom-control-label" for="customRadio2">Bình Thường</label>
                                 </div>
                             </div>

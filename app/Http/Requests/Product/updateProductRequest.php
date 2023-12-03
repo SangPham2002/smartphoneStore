@@ -11,7 +11,7 @@ class updateProductRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,16 @@ class updateProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "name"=> "required",
+            "image"=> "image",
+            "price"=> "required",
+        ];
+    }
+    public function messages():array{
+        return [
+            'name.required'=>'Vui lòng điền tên sản phẩm!',
+            "price.required"=> "Giá sản phẩm không được để trống!",
+           
         ];
     }
 }

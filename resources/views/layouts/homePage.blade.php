@@ -146,14 +146,15 @@
                                             <div class="product">
                                                 <span class="badges">
                                                     @if ($item->sale_price)
-                                                        <span class="sale">-{{ round(($item->price - $item->sale_price) / $item->price  * 100) }}%</span>
+                                                        <span
+                                                            class="sale">-{{ round((($item->price - $item->sale_price) / $item->price) * 100) }}%</span>
                                                         <span class="new">Sale</span>
                                                     @else
                                                         <span class="new">New</span>
                                                     @endif
                                                 </span>
                                                 <div class="thumb">
-                                                    <a href="single-product.html" class="image">
+                                                    <a href="{{ route('homePage.detail', $item->slug) }}" class="image">
                                                         <img src="{{ asset('storage/images/' . $item->image) }}"
                                                             alt="Product" />
                                                         <img class="hover-image"
@@ -162,7 +163,8 @@
                                                     </a>
                                                 </div>
                                                 <div class="content">
-                                                    <h5 class="title"><a href="single-product.html">{{ $item->name }}
+                                                    <h5 class="title"><a
+                                                            href="{{ route('homePage.detail', $item->slug) }}">{{ $item->name }}
                                                         </a>
                                                     </h5>
                                                     <span class="price">
@@ -196,7 +198,7 @@
                             </div>
                             <!-- 1st tab end -->
                             <!-- 2nd tab start -->
-                            <div class="tab-pane fade" id="toprated">
+                            {{-- <div class="tab-pane fade" id="toprated">
                                 <div class="row">
                                     <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
                                         <!-- Single Prodect -->
@@ -507,64 +509,66 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- 2nd tab end -->
                             <!-- 3rd tab start -->
                             <div class="tab-pane fade" id="featured">
                                 <div class="row">
                                     @foreach ($productStock as $item)
-                                    <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
-                                        <!-- Single Prodect -->
-                                        <div class="product">
-                                            <span class="badges">
-                                                @if ($item->sale_price)
-                                                    <span class="sale">-{{ round(($item->price - $item->sale_price) / $item->price  * 100) }}%</span>
-                                                    <span class="new">Sale</span>
-                                                @else
-                                                    <span class="new">New</span>
-                                                @endif
-                                            </span>
-                                            <div class="thumb">
-                                                <a href="single-product.html" class="image">
-                                                    <img src="{{ asset('storage/images/' . $item->image) }}"
-                                                        alt="Product" />
-                                                    <img class="hover-image"
-                                                        src="{{ asset('storage/images/' . $item->image) }}"
-                                                        alt="Product" />
-                                                </a>
-                                            </div>
-                                            <div class="content">
-                                                <h5 class="title"><a href="single-product.html">{{ $item->name }}
-                                                    </a>
-                                                </h5>
-                                                <span class="price">
+                                        <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">
+                                            <!-- Single Prodect -->
+                                            <div class="product">
+                                                <span class="badges">
                                                     @if ($item->sale_price)
-                                                        <span class="old">{{ number_format($item->price) }}₫</span>
                                                         <span
-                                                            class="new">{{ number_format($item->sale_price) }}₫</span>
+                                                            class="sale">-{{ round((($item->price - $item->sale_price) / $item->price) * 100) }}%</span>
+                                                        <span class="new">Sale</span>
                                                     @else
-                                                        <span class="new">{{ number_format($item->price) }}₫</span>
+                                                        <span class="new">New</span>
                                                     @endif
                                                 </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button title="Add To Cart" class="action add-to-cart"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                        class="pe-7s-shopbag"></i></button>
-                                                <button class="action wishlist" title="Wishlist"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                        class="pe-7s-like"></i></button>
-                                                <button class="action quickview" data-link-action="quickview"
-                                                    title="Quick view" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                <button class="action compare" title="Compare" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal-Compare"><i
-                                                        class="pe-7s-refresh-2"></i></button>
+                                                <div class="thumb">
+                                                    <a href="{{ route('homePage.detail', $item->slug) }}" class="image">
+                                                        <img src="{{ asset('storage/images/' . $item->image) }}"
+                                                            alt="Product" />
+                                                        <img class="hover-image"
+                                                            src="{{ asset('storage/images/' . $item->image) }}"
+                                                            alt="Product" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="title"><a
+                                                            href="{{ route('homePage.detail', $item->slug) }}">{{ $item->name }}
+                                                        </a>
+                                                    </h5>
+                                                    <span class="price">
+                                                        @if ($item->sale_price)
+                                                            <span class="old">{{ number_format($item->price) }}₫</span>
+                                                            <span
+                                                                class="new">{{ number_format($item->sale_price) }}₫</span>
+                                                        @else
+                                                            <span class="new">{{ number_format($item->price) }}₫</span>
+                                                        @endif
+                                                    </span>
+                                                </div>
+                                                <div class="actions">
+                                                    <button title="Add To Cart" class="action add-to-cart"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
+                                                            class="pe-7s-shopbag"></i></button>
+                                                    <button class="action wishlist" title="Wishlist"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
+                                                            class="pe-7s-like"></i></button>
+                                                    <button class="action quickview" data-link-action="quickview"
+                                                        title="Quick view" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
+                                                    <button class="action compare" title="Compare" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal-Compare"><i
+                                                            class="pe-7s-refresh-2"></i></button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
-                                   
+                                    @endforeach
+
                                 </div>
                             </div>
                             <!-- 3rd tab end -->

@@ -7,19 +7,19 @@
             <div class="mt-5">
                 <h4 class="header-title mb-3">@yield('titlePage')</h4>
                 <div class="mb-4">
-                    <form class="form-validation" method="POST" action="{{ Route('product.update', $products, $category) }}"
+                    <form class="form-validation" method="POST" action="{{ Route('product.update', $product, $category) }}"
                         enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
-                        <input type="hidden" name="id" value="{{ $products->id }}">
+                        <input type="hidden" name="id" value="{{ $product->id }}">
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-md-4 form-control-label">Tên Sản Phẩm<span
                                     class="text-danger">*</span></label>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" id="productName" name="name"
                                     placeholder="Tên Sản Phẩm" onkeyup="ChangeToSlug()"
-                                    value="{{ old('name') ? old('name') : $products->name }}" >
-                               
+                                    value="{{ old('name') ? old('name') : $product->name }}">
+
                             </div>
                         </div>
                         @error('name')
@@ -35,43 +35,34 @@
                             <label for="inputEmail3" class="col-md-4 form-control-label">Ảnh Sản Phẩm</label>
                             <div class="col-md-7">
                                 <input type="file" class="form-control" id="image" name="image">
-                                @error('name')
-                                    is-invalid
-                                @enderror
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-md-4 form-control-label"></label>
+                                <div class="col-md-7">
+                                    @if ($product->image)
+                                    <img src="{{ asset('storage/images/' . $product->image) }}" alt="Current Image"
+                                        width="250px">
+                                @endif
+                                </div>
+                               
                             </div>
 
                         </div>
-                        @error('name')
-                            <div class="alert alert-icon alert-warning text-warning alert-dismissible fade show" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                                <i class="mdi mdi-alert mr-1"></i>
-                                <strong>Thất Bại!</strong>{{ $message }}
-                            </div>
-                        @enderror
+
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-md-4 form-control-label">Ảnh Mô Tả</label>
                             <div class="col-md-7">
                                 <input type="file" class="form-control" id="images" name="images[]" multiple>
-                                @error('name')
-                                    is-invalid
-                                @enderror
                             </div>
-
                         </div>
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-md-4 form-control-label">Giá Sản Phẩm<span
-                                    class="text-danger">*</span></label>
+                            <label for="inputEmail3" class="col-md-4 form-control-label">Giá Sản Phẩm</label>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" id="inputEmail3" name="price"
-                                    placeholder="Giá Sản Phẩm">
-                                @error('name')
-                                    is-invalid
-                                @enderror
+                                    placeholder="Giá Sản Phẩm" value="{{ $product->price }}">
                             </div>
                         </div>
-                        @error('name')
+                        @error('price')
                             <div class="alert alert-icon alert-warning text-warning alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">×</span>
@@ -85,28 +76,18 @@
                                     class="text-danger">*</span></label>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" id="inputEmail3" name="sale_price"
-                                    placeholder="Giá khuyến mãi">
-                                @error('name')
-                                    is-invalid
-                                @enderror
+                                    placeholder="Giá khuyến mãi" value="{{ $product->sale_price }}">
                             </div>
                         </div>
-                        @error('name')
-                            <div class="alert alert-icon alert-warning text-warning alert-dismissible fade show" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                                <i class="mdi mdi-alert mr-1"></i>
-                                <strong>Thất Bại!</strong>{{ $message }}
-                            </div>
-                        @enderror
+
                         <div class="form-group row">
                             <label class="col-md-4 form-control-label">Danh Mục</label>
                             <div class="col-md-7">
-                                <select class="form-control" name="category_id" id="input">
-                                    <option value="0">Chọn danh mục</option>
+                                <select name="category_id" id="input" class="form-control">
                                     @foreach ($categories as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}"
+                                            {{ isset($product) && $product->category_id === $item->id ? 'selected' : '' }}>
+                                            {{ $item->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -115,29 +96,32 @@
                             <label class="col-md-4 form-control-label">Đường dẫn Slug</label>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" id="slug" name="slug" readonly>
-                                @error('name')
-                                    is-invalid
-                                @enderror
                             </div>
                         </div>
-                        @error('name')
-                            <div class="alert alert-icon alert-warning text-warning alert-dismissible fade show"
-                                role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                                <i class="mdi mdi-alert mr-1"></i>
-                                <strong>Thất Bại!</strong>{{ $message }}
+                        <div class="mt-3">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-md-4 form-control-label">Trạng Thái</label>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio1" name="stock" class="custom-control-input"
+                                        value="1" {{ $product->stock ? 'checked' : '' }}>
+                                    <label class="px-1 custom-control-label" for="customRadio1">Đặc Sắc</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="customRadio2" name="stock" class="custom-control-input"
+                                        value="0" {{ !$product->stock ? 'checked' : '' }}>
+                                    <label class="custom-control-label" for="customRadio2">Bình Thường</label>
+                                </div>
                             </div>
-                        @enderror
+                        </div>
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-md-4 form-control-label">Mô Tả</label>
                             <div class="col-md-7">
                                 <textarea name="description" id="editor1" rows="10" cols="80">
-                                    Điền mô tả sản phẩm tại đây
+                                    {{ $product->description }}
                                 </textarea>
                             </div>
                         </div>
+
                         <div class="form-group row justify-content-end">
                             <div class="col-md-8">
                                 <button class="btn btn-primary waves-effect waves-light mr-1">

@@ -56,7 +56,8 @@
                                                             @endif
                                                         </span>
                                                         <div class="thumb">
-                                                            <a href="single-product.html" class="image">
+                                                            <a href="{{ route('homePage.detail', $item->slug) }}"
+                                                                class="image">
                                                                 <img src="{{ asset('storage/images/' . $item->image) }}"
                                                                     alt="Product" />
                                                                 <img class="hover-image"
@@ -68,7 +69,7 @@
                                                             <span class="category"><a
                                                                     href="#">{{ App\Models\Category::find($item->category_id)->name }}</a></span>
                                                             <h5 class="title"><a
-                                                                    href="single-product.html">{{ $item->name }}</a>
+                                                                    href="{{ route('homePage.detail', $item->slug) }}">{{ $item->name }}</a>
                                                             </h5>
                                                             <span class="price">
                                                                 @if ($item->sale_price)
@@ -114,7 +115,7 @@
                         <div class="pro-pagination-style text-center text-lg-end" data-aos="fade-up" data-aos-delay="200">
                             <div class="pages">
                                 <ul>
-                                    {{$products->links()}}
+                                    {{ $products->links() }}
                                     {{-- @foreach ($products as $item)
                                         @if ($item == App\Models\Product::paginate(1))
                                             <li class="li"><a class="page-link"><i class="fa fa-angle-left"></i></a>
@@ -140,20 +141,10 @@
                             <h4 class="sidebar-title">Top Danh Mục</h4>
                             <div class="sidebar-widget-category">
                                 <ul>
-                                    <li><a href="#" class="selected m-0"> Bán chạy
-                                            <span>(65)</span> </a></li>
-                                    <li><a href="#" class=""> Computer
-                                            <span>(12)</span> </a></li>
-                                    <li><a href="#" class=""> Covid-19
-                                            <span>(22)</span> </a></li>
-                                    <li><a href="#" class=""> Electronics
-                                            <span>(19)</span> </a></li>
-                                    <li><a href="#" class=""> Frame Sunglasses
-                                            <span>(17)</span> </a></li>
-                                    <li><a href="#" class=""> Furniture
-                                            <span>(7)</span> </a></li>
-                                    <li><a href="#" class=""> Genuine Leather
-                                            <span>(9)</span> </a></li>
+                                    @foreach ($categories as $item)
+                                        <li><a href="#" class="selected m-0">{{ $item->name }}
+                                                <span>({{ $item->products_count }})</span> </a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

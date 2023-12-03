@@ -22,18 +22,16 @@ class storeProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name"=> "required|min:5|max:20|unique:products",
+            "name"=> "required|unique:products",
             "image"=> "image",
-            "price"=> "required|min:4|max:10",
+            "price"=> "required",
         ];
     }
     public function messages():array{
         return [
-            'name.required'=>'Vui lòng điền tên sản phẩm',
-            'name.unique'=>"$this->name đã tồn tại",
-            "price.required"=> "Giá sản phẩm không vượt quá mức quy định!",
-            "price.min"=> "Giá sản phẩm không vượt quá mức quy định!",
-            "price.max"=> "Giá sản phẩm không vượt quá mức quy định!",
+            'name.required'=>'Vui lòng điền tên sản phẩm!',
+            'name.unique'=>"$this->name đã tồn tại!",
+            "price.required"=> "Giá sản phẩm không được để trống!",
         ];
     }
 }

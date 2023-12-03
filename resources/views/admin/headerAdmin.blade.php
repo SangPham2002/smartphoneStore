@@ -244,62 +244,12 @@
 
                     <li>
                         <a href="javascript: void(0);">
-                            <i class="ti-files"></i>
-                            <span> Pages </span>
+                            <i class="ti-shopping-cart"></i>
+                            <span> Hóa Đơn </span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul class="nav-second-level" aria-expanded="false">
-                            <li><a href="pages-login.html">Login</a></li>
-                            <li><a href="pages-register.html">Register</a></li>
-                            <li><a href="pages-forget-password.html">Forget Password</a></li>
-                            <li><a href="pages-blank.html">Blank page</a></li>
-                            <li><a href="pages-404.html">Error 404</a></li>
-                            <li><a href="pages-confirm-mail.html">Confirm Mail</a></li>
-                            <li><a href="pages-session-expired.html">Session Expired</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="javascript: void(0);">
-                            <i class="ti-widget"></i>
-                            <span> Extra Pages </span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <ul class="nav-second-level" aria-expanded="false">
-
-                            <li><a href="extras-timeline.html">Timeline</a></li>
-                            <li><a href="extras-invoice.html">Invoice</a></li>
-                            <li><a href="extras-profile.html">Profile</a></li>
-                            <li><a href="extras-calendar.html">Calendar</a></li>
-                            <li><a href="extras-faqs.html">FAQs</a></li>
-                            <li><a href="extras-pricing.html">Pricing</a></li>
-                            <li><a href="extras-contacts.html">Contacts</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="javascript: void(0);">
-                            <i class="ti-share"></i>
-                            <span> Multi Level </span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <ul class="nav-second-level nav" aria-expanded="false">
-                            <li>
-                                <a href="javascript: void(0);">Level 1.1</a>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" aria-expanded="false">Level 1.2
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="nav-third-level nav" aria-expanded="false">
-                                    <li>
-                                        <a href="javascript: void(0);">Level 2.1</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript: void(0);">Level 2.2</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            <li><a href="pages-login.html">Danh sách hóa đơn</a></li>
                         </ul>
                     </li>
                 </ul>

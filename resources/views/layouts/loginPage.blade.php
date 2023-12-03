@@ -45,6 +45,16 @@
                                             <strong>{{ $message }}</strong>
                                         </div>
                                     @endif
+                                    @if ($message = Session::get('success'))
+                                        <div class="alert alert-icon alert-success text-success alert-dismissible fade show"
+                                            role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <i class="mdi mdi-check-all mr-2"></i>
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @endif
                                     <div class="login-form-container">
                                         <div class="login-register-form">
                                             <form action="{{ route('homePage.login') }}" method="POST">

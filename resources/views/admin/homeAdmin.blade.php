@@ -21,312 +21,81 @@
                     <div class="row">
                         <div class="col-12">
                             <div>
-                                <div class="card-box widget-inline">
-                                    <div class="row">
-                                        <div class="col-xl-3 col-sm-6 widget-inline-box">
-                                            <div class="text-center p-3">
-                                                <h2 class="mt-2"><i
-                                                        class="text-primary mdi mdi-access-point-network mr-2"></i>
-                                                    <b>8954</b>
-                                                </h2>
-                                                <p class="text-muted mb-0">Lifetime total sales</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xl-3 col-sm-6 widget-inline-box">
-                                            <div class="text-center p-3">
-                                                <h2 class="mt-2"><i class="text-teal mdi mdi-airplay mr-2"></i>
-                                                    <b>7841</b>
-                                                </h2>
-                                                <p class="text-muted mb-0">Income amounts</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xl-3 col-sm-6 widget-inline-box">
-                                            <div class="text-center p-3">
-                                                <h2 class="mt-2"><i class="text-info mdi mdi-black-mesa mr-2"></i>
-                                                    <b>6521</b>
-                                                </h2>
-                                                <p class="text-muted mb-0">Total users</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xl-3 col-sm-6">
-                                            <div class="text-center p-3">
-                                                <h2 class="mt-2"><i class="text-danger mdi mdi-cellphone-link mr-2"></i>
-                                                    <b>325</b>
-                                                </h2>
-                                                <p class="text-muted mb-0">Total visits</p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end row -->
-
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card-box">
-                                <h5 class="mt-0 font-14">Total Revenue</h5>
-                                <div class="text-center">
-                                    <ul class="list-inline chart-detail-list">
-                                        <li class="list-inline-item">
-                                            <p class="font-weight-semibold"><i
-                                                    class="fa fa-circle mr-2 text-primary"></i>Series
-                                                A</p>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <p class="font-weight-semibold"><i
-                                                    class="fa fa-circle mr-2 text-muted"></i>Series B
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div id="dashboard-bar-stacked" class="morris-chart" dir="ltr" style="height: 300px;">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end col -->
-
-                        <div class="col-lg-6">
-                            <div class="card-box">
-                                <h5 class="mt-0 font-14">Sales Analytics</h5>
-                                <div class="text-center">
-                                    <ul class="list-inline chart-detail-list">
-                                        <li class="list-inline-item">
-                                            <p class="font-weight-semibold"><i
-                                                    class="fa fa-circle mr-2 text-primary"></i>Mobiles</p>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <p class="font-weight-semibold"><i
-                                                    class="fa fa-circle mr-2 text-info"></i>Tablets
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div id="dashboard-line-chart" class="morris-chart" dir="ltr" style="height: 300px;">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end col -->
-                    </div>
-                    <!-- end row -->
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="card-box">
-                                <h5 class="mt-0 font-14 mb-3">Contacts</h5>
+                                <h2>Bảng Danh Mục</h2>
                                 <div class="table-responsive">
-                                    <table class="table table-hover mails m-0 table table-actions-bar table-centered">
+                                    <table class="table m-0">
                                         <thead>
                                             <tr>
-                                                <th style="min-width: 95px;">
-
-                                                    <div class="checkbox checkbox-single checkbox-primary">
-                                                        <input type="checkbox" class="custom-control-input"
-                                                            id="action-checkbox">
-                                                        <label class="custom-control-label"
-                                                            for="action-checkbox">&nbsp;</label>
-                                                    </div>
-                                                </th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Products</th>
-                                                <th>Start Date</th>
+                                                <th>Stt</th>
+                                                <th>Tên Danh Mục</th>
+                                                <th>Danh Mục Cha</th>
+                                                <th>Trang Thái</th>
+                                                <th>Ngày tạo</th>
                                             </tr>
                                         </thead>
-
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    <div class="checkbox checkbox-primary mr-2 float-left">
-                                                        <input id="checkbox2" type="checkbox">
-                                                        <label for="checkbox2"></label>
-                                                    </div>
-
-                                                    <img src="assets\images\users\avatar-2.jpg" alt="contact-img"
-                                                        title="contact-img" class="rounded-circle avatar-sm">
-                                                </td>
-
-                                                <td>
-                                                    Tomaslau
-                                                </td>
-
-                                                <td>
-                                                    <a href="#" class="text-muted">tomaslau@dummy.com</a>
-                                                </td>
-
-                                                <td>
-                                                    <b><a href="" class="text-dark"><b>356</b></a>
-                                                    </b>
-                                                </td>
-
-                                                <td>
-                                                    01/11/2003
-                                                </td>
-
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <div class="checkbox checkbox-primary mr-2 float-left">
-                                                        <input id="checkbox1" type="checkbox">
-                                                        <label for="checkbox1"></label>
-                                                    </div>
-
-                                                    <img src="assets\images\users\avatar-1.jpg" alt="contact-img"
-                                                        title="contact-img" class="rounded-circle avatar-sm">
-                                                </td>
-
-                                                <td>
-                                                    Chadengle
-                                                </td>
-
-                                                <td>
-                                                    <a href="#" class="text-muted">chadengle@dummy.com</a>
-                                                </td>
-
-                                                <td>
-                                                    <b><a href="" class="text-dark"><b>568</b></a>
-                                                    </b>
-                                                </td>
-
-                                                <td>
-                                                    01/11/2003
-                                                </td>
-
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <div class="checkbox checkbox-primary mr-2 float-left">
-                                                        <input id="checkbox3" type="checkbox">
-                                                        <label for="checkbox3"></label>
-                                                    </div>
-
-                                                    <img src="assets\images\users\avatar-3.jpg" alt="contact-img"
-                                                        title="contact-img" class="rounded-circle avatar-sm">
-                                                </td>
-
-                                                <td>
-                                                    Stillnotdavid
-                                                </td>
-
-                                                <td>
-                                                    <a href="#" class="text-muted">stillnotdavid@dummy.com</a>
-                                                </td>
-                                                <td>
-                                                    <b><a href="" class="text-dark"><b>201</b></a>
-                                                    </b>
-                                                </td>
-
-                                                <td>
-                                                    12/11/2003
-                                                </td>
-
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <div class="checkbox checkbox-primary mr-2 float-left">
-                                                        <input id="checkbox4" type="checkbox">
-                                                        <label for="checkbox4"></label>
-                                                    </div>
-
-                                                    <img src="assets\images\users\avatar-4.jpg" alt="contact-img"
-                                                        title="contact-img" class="rounded-circle avatar-sm">
-                                                </td>
-
-                                                <td>
-                                                    Kurafire
-                                                </td>
-
-                                                <td>
-                                                    <a href="#" class="text-muted">kurafire@dummy.com</a>
-                                                </td>
-
-                                                <td>
-                                                    <b><a href="" class="text-dark"><b>56</b></a>
-                                                    </b>
-                                                </td>
-
-                                                <td>
-                                                    14/11/2003
-                                                </td>
-
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <div class="checkbox checkbox-primary mr-2 float-left">
-                                                        <input id="checkbox5" type="checkbox">
-                                                        <label for="checkbox5"></label>
-                                                    </div>
-
-                                                    <img src="assets\images\users\avatar-5.jpg" alt="contact-img"
-                                                        title="contact-img" class="rounded-circle avatar-sm">
-                                                </td>
-
-                                                <td>
-                                                    Shahedk
-                                                </td>
-
-                                                <td>
-                                                    <a href="#" class="text-muted">shahedk@dummy.com</a>
-                                                </td>
-
-                                                <td>
-                                                    <b><a href="" class="text-dark"><b>356</b></a>
-                                                    </b>
-                                                </td>
-
-                                                <td>
-                                                    20/11/2003
-                                                </td>
-
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <div class="checkbox checkbox-primary mr-2 float-left">
-                                                        <input id="checkbox6" type="checkbox">
-                                                        <label for="checkbox6"></label>
-                                                    </div>
-
-                                                    <img src="assets\images\users\avatar-6.jpg" alt="contact-img"
-                                                        title="contact-img" class="rounded-circle avatar-sm">
-                                                </td>
-
-                                                <td>
-                                                    Adhamdannaway
-                                                </td>
-
-                                                <td>
-                                                    <a href="#" class="text-muted">adhamdannaway@dummy.com</a>
-                                                </td>
-
-                                                <td>
-                                                    <b><a href="" class="text-dark"><b>956</b></a>
-                                                    </b>
-                                                </td>
-
-                                                <td>
-                                                    24/11/2003
-                                                </td>
-
-                                            </tr>
-
+                                            @forelse ($categories as $item)
+                                                <tr>
+                                                    <th scope="row">{{ $loop->iteration }}</th>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->parent_id }}</td>
+                                                    <td>{!! $item->status
+                                                        ? '<span class="btn btn-teal btn-rounded">Hiện</span>'
+                                                        : '<span class="btn btn-danger btn-rounded">Ẩn</span>' !!}</td>
+                                                    <td>{{ $item->created_at }}</td>
+                                                </tr>
+                                            @empty
+                                                <h1>Không có dữ liệu</h1>
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- end row -->
-
+                    <h2>Bảng Sản Phẩm</h2>
+                    <div class="table-responsive">
+                        <table class="table m-0">
+                            <thead>
+                                <tr>
+                                    <th>Stt</th>
+                                    <th>Tên</th>
+                                    <th>Ảnh</th>
+                                    <th>Giá </th>
+                                    <th>Giá Sale</th>
+                                    <th>Mục</th>
+                                    <th>Trạng Thái</th>
+                                    <th>Ngày Tạo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($products as $item)
+                                    <tr>
+                                        <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>{{ $item->name }}</td>
+                                        <td>
+                                            <img src="{{ asset('/storage/images/' . $item->image) }}" alt=""
+                                                width="150px">
+                                        </td>
+                                        <td>{{ number_format($item->price) }}₫</td>
+                                        <td>{{ number_format($item->sale_price) }}₫</td>
+                                        <td>
+                                            {{ App\Models\Category::find($item->category_id)->name }}
+                                        </td>
+                                        <td>{!! $item->stock
+                                            ? '<span class="btn btn-teal btn-rounded">Đặc Sắc</span>'
+                                            : '<span class="btn btn-danger btn-rounded">Thường</span>' !!}</td>
+                                        <td>{{ $item->created_at }}</td>
+                                    </tr>
+                                @empty
+                                    <h1>Không có dữ liệu</h1>
+                                @endforelse
+                              
+                            </tbody>
+                            
+                        </table>
+                        {{ $products->links() }}
+                    </div>
                 </div>
                 <!-- end container-fluid -->
 

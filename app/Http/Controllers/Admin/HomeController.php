@@ -13,6 +13,8 @@ class HomeController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('admin.homeAdmin', compact('user'));
+        $products = Product::paginate(3);
+        $categories = Category::all();
+        return view('admin.homeAdmin', compact('user', 'products', 'categories'));
     }
 }

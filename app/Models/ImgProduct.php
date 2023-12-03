@@ -9,4 +9,8 @@ class ImgProduct extends Model
 {
     use HasFactory;
     protected $fillable = ['product_id', 'image'];
+
+    public function cateRoom(){
+        return $this->belongsTo(Product::class);
+    }
 }

@@ -1,5 +1,5 @@
-@section('title', 'SSMobile | Danh Sách Sản Phẩm')
-@section('titlePage', 'Danh Sách Sản Phẩm')
+@section('title', 'SSMobile | Danh Sách Danh Mục')
+@section('titlePage', 'Danh Sách Danh Mục')
 @extends('admin.masterAdmin')
 @section('main-content')
     <section class="content">
@@ -7,11 +7,11 @@
             <div class="col-lg-15">
                 <div>
                     <h1 class="font-20">@yield('titlePage')</h1>
-                    <a href="{{ Route('product.create') }}"><button type="button"
+                    <a href="{{ Route('category.create') }}"><button type="button"
                             class="btn btn-primary waves-effect waves-light" data-toggle="modal"
                             data-target=".bs-example-modal-lg"><i class="fa fa-plus mr-1"></i>Thêm Mới </button></a>
-                    <a href=""><button class="btn btn-icon btn-warning"> <i class="fas fa-trash-alt"></i>
-                            Thùng Rác</button></a>
+                    <a href="{{Route('category.trash')}}"><button class="btn btn-icon btn-warning"> <i class="fas fa-trash-alt"></i>
+                        Thùng Rác</button></a>
                     @if ($message = Session::get('success'))
                         <div class="alert alert-icon alert-success text-success alert-dismissible fade show" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -26,58 +26,46 @@
                             <thead>
                                 <tr>
                                     <th>Stt</th>
-                                    <th>Tên</th>
-                                    <th>Ảnh</th>
-                                    <th>Giá </th>
-                                    <th>Giá Sale</th>
-                                    <th>Mục</th>
-                                    <th>Trạng Thái</th>
-                                    <th>Ngày Tạo</th>
+                                    <th>Tên Danh Mục</th>
+                                    <th>Danh Mục Cha</th>
+                                    <th>Trang Thái</th>
+                                    <th>Ngày tạo</th>
                                     <th>Tùy Chọn</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($products as $item)
+                                @forelse ($categories as $item)
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $item->name }}</td>
-                                        <td>
-                                            <img src="{{ asset('/storage/images/' . $item->image) }}" alt=""
-                                                width="150px">
-                                        </td>
-                                        <td>{{ number_format($item->price) }}₫</td>
-                                        <td>{{ number_format($item->sale_price) }}₫</td>
-                                        <td>
-                                            {{ App\Models\Category::find($item->category_id)->name }}
-                                        </td>
-                                        <td>{!! $item->stock
-                                            ? '<span class="btn btn-teal btn-rounded">Đặc Sắc</span>'
-                                            : '<span class="btn btn-danger btn-rounded">Thường</span>' !!}</td>
+                                        <td>{{ $item->parent_id }}</td>
+                                        <td>{!! $item->status
+                                            ? '<span class="btn btn-teal btn-rounded">Hiện</span>'
+                                            : '<span class="btn btn-danger btn-rounded">Ẩn</span>' !!}</td>
                                         <td>{{ $item->created_at }}</td>
                                         <td>
                                             <div style="display: flex">
-                                                <a href="{{ Route('product.edit', $item) }}"><button type="button"
+                                                <a href="{{ Route('category.edit', $item) }}"><button type="button"
                                                         class="btn btn-icon btn-primary waves-effect"><i
                                                             class="fas fa-wrench"></i></button></a>
-                                                <form action="{{ Route('product.destroy', $item) }}" method="POST">
+                                                <form action="{{ Route('category.destroy', $item) }}" method="POST">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <button type="submit"
+                                                    <button type="submit" onclick="return confirm('Bạn có chắc xóa chứ?')"
                                                         class="btn btn-icon btn-danger waves-effect waves-light"
-                                                        id="sa-warning" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')"><i btn-icon btn-primaryi
+                                                        id="sa-warning"><i btn-icon btn-primaryi
                                                             class="fas fa-times"></i></button>
                                                 </form>
                                             </div>
+
                                         </td>
+
                                     </tr>
                                 @empty
                                     <h1>Không có dữ liệu</h1>
                                 @endforelse
-                              
                             </tbody>
-                            
                         </table>
-                        {{ $products->links() }}
                     </div>
                 </div>
             </div>

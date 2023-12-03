@@ -32,17 +32,20 @@ Route::prefix('adminSSMobile')->middleware('admin')->group(function () {
 
     //---- Route category ----//
     Route::resource('category', CategoryController::class);
-    Route::resource('profile', ProfileController::class);
     Route::get('/category-trash', [CategoryController::class, 'trash'])->name('category.trash');
     Route::get('/category/{id}/restore', [CategoryController::class, 'restore'])->name('category.restore');
     Route::get('/category/{id}/forceDelete', [CategoryController::class, 'forceDelete'])->name('category.forceDelete');
     //---- END ROUTE CATEGORY ----//
 
+    //---- ROUTE PROFILE ----//
+    Route::resource('profile', ProfileController::class);
+    //---- END ROUTE PROFILE ----//
+    
     //---- ROUTE PRODUCT ----//
     Route::resource('product', ProductController::class);
     //---- END ROUTE PRODUCT ----//
 });
-//-----------    End      ------------//
+//-----------    End Route Backend     ------------//
 
 //----------- Router Frontend ------------//    
 Route::prefix('SSMobile')->group(function () {
@@ -58,6 +61,9 @@ Route::prefix('SSMobile')->group(function () {
     Route::get('/account', [UserController::class, 'account'])->name('homePage.account');
     //Shop
     Route::get('/shop-list', [HomePage::class, 'shop'])->name('homePage.shop');
+    //Chi tiết sản phẩm
+    Route::get('/detail/{slug}', [HomePage::class, 'detail'])->name('homePage.detail');
+    
 });
 
-//-----------    End      ------------//
+//-----------    End Route Frontend     ------------//

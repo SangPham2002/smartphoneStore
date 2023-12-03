@@ -37,7 +37,7 @@ class UserController extends Controller
         } catch (\Throwable $th) {
             dd($th);
         }
-        return redirect()->route('homePage.loginPage');
+        return redirect()->route('homePage.loginPage')->with('success', 'Đăng ký tài khoản thành công!');
     }
 
     //Chức năng đăng xuất

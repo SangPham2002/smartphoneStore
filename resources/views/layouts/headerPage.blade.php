@@ -89,7 +89,7 @@
                                 <a href="#offcanvas-cart"
                                     class="header-action-btn header-action-btn-cart offcanvas-toggle pr-1">
                                     <i class="pe-7s-shopbag"></i>
-                                    <span class="header-action-num">01</span>
+                                    <span class="header-action-num">{{$cart->getTotalQuantity()}}</span>
                                     <!-- <span class="cart-amount">€30.00</span> -->
                                 </a>
                                 <a href="#offcanvas-mobile-menu"
@@ -350,44 +350,28 @@
         <div id="offcanvas-cart" class="offcanvas offcanvas-cart">
             <div class="inner">
                 <div class="head">
-                    <span class="title">Cart</span>
+                    <span class="title">Giỏ Hàng</span>
                     <button class="offcanvas-close">×</button>
                 </div>
                 <div class="body customScroll">
                     <ul class="minicart-product-list">
+                        @foreach ($cart->list() as $key => $value)
                         <li>
-                            <a href="single-product.html" class="image"><img
-                                    src="/assets/images/product-image/1.webp" alt="Cart product Image"></a>
+                            <a href="" class="image"><img
+                                    src="{{ asset('storage/images/') }}/{{ $value['image'] }}" alt="Cart product Image"></a>
                             <div class="content">
-                                <a href="single-product.html" class="title">Modern Smart Phone</a>
-                                <span class="quantity-price">1 x <span class="amount">$18.86</span></span>
+                                <a href="single-product.html" class="title">{{ $value['name'] }}</a>
+                                <span class="quantity-price">{{$value['quantity']}} *<span class="amount">{{ number_format($value['price']) }}₫</span></span>
                                 <a href="#" class="remove">×</a>
                             </div>
                         </li>
-                        <li>
-                            <a href="single-product.html" class="image"><img
-                                    src="/assets/images/product-image/2.webp" alt="Cart product Image"></a>
-                            <div class="content">
-                                <a href="single-product.html" class="title">Bluetooth Headphone</a>
-                                <span class="quantity-price">1 x <span class="amount">$43.28</span></span>
-                                <a href="#" class="remove">×</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="single-product.html" class="image"><img
-                                    src="/assets/images/product-image/3.webp" alt="Cart product Image"></a>
-                            <div class="content">
-                                <a href="single-product.html" class="title">Smart Music Box</a>
-                                <span class="quantity-price">1 x <span class="amount">$37.34</span></span>
-                                <a href="#" class="remove">×</a>
-                            </div>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="foot">
                     <div class="buttons mt-30px">
-                        <a href="cart.html" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
-                        <a href="checkout.html" class="btn btn-outline-dark current-btn">checkout</a>
+                        <a href="{{route('cart.index')}}" class="btn btn-dark btn-hover-primary mb-30px">Xem Giỏ Hàng</a>
+                        <a href="checkout.html" class="btn btn-outline-dark current-btn">Thanh Toán</a>
                     </div>
                 </div>
             </div>

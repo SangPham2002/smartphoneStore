@@ -318,7 +318,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
                                 class="pe-7s-close"></i></button>
                         <div class="tt-modal-messages">
-                            <i class="pe-7s-check"></i> Added to compare successfully!
+                            <i class="pe-7s-check"></i> Thêm thành công vào giỏ hàng!
                         </div>
                         <div class="tt-modal-product">
                             <div class="tt-img">

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Frontend\HomePage;
 use App\Http\Controllers\UserController;
 use Illuminate\Routing\Route as RoutingRoute;
@@ -63,7 +64,10 @@ Route::prefix('SSMobile')->group(function () {
     Route::get('/shop-list', [HomePage::class, 'shop'])->name('homePage.shop');
     //Chi tiết sản phẩm
     Route::get('/detail/{slug}', [HomePage::class, 'detail'])->name('homePage.detail');
-    
+    //Giỏ hàng
+    Route::get('cart', [CartController::class, 'index'])->name('cart.index');  
+    Route::post('/add-cart', [CartController::class, 'add'])->name('cart.add'); 
+     
 });
 
 //-----------    End Route Frontend     ------------//

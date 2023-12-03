@@ -31,74 +31,42 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <img class="img-responsive m-auto"
-                                            src="assets/images/product-image/small-image/1.webp" alt="">
+                                            src="{{ asset('storage/images/' . $product->image) }}" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto"
-                                            src="assets/images/product-image/small-image/2.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto"
-                                            src="assets/images/product-image/small-image/3.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto"
-                                            src="assets/images/product-image/small-image/4.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto"
-                                            src="assets/images/product-image/small-image/5.webp" alt="">
-                                    </div>
+                                    @foreach ($product->images as $item)
+                                        <div class="swiper-slide">
+                                            <img class="img-responsive m-auto"
+                                                src="{{ asset('storage/images/' . $item->image) }}" alt="">
+                                        </div>
+                                    @endforeach
                                 </div>
                                 <!-- Add Arrows -->
                                 <!-- <div class="swiper-buttons">
-                                                                                    <div class="swiper-button-next"></div>
-                                                                                    <div class="swiper-button-prev"></div>
-                                                                                </div> -->
+                                                                                                <div class="swiper-button-next"></div>
+                                                                                                <div class="swiper-button-prev"></div>
+                                                                                            </div> -->
                             </div>
                             <!-- Swiper -->
                             <div class="swiper-container zoom-top-2 align-self-start">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <img class="img-responsive m-auto"
-                                            src="assets/images/product-image/zoom-image/1.webp" alt="">
+                                            src="{{ asset('storage/images/' . $product->image) }}" alt="">
                                         <a class="venobox full-preview" data-gall="myGallery"
-                                            href="assets/images/product-image/zoom-image/1.webp">
+                                            href="{{ asset('storage/images/' . $product->image) }}">
                                             <i class="fa fa-arrows-alt" aria-hidden="true"></i>
                                         </a>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto"
-                                            src="assets/images/product-image/zoom-image/2.webp" alt="">
-                                        <a class="venobox full-preview" data-gall="myGallery"
-                                            href="assets/images/product-image/zoom-image/2.webp">
-                                            <i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto"
-                                            src="assets/images/product-image/zoom-image/3.webp" alt="">
-                                        <a class="venobox full-preview" data-gall="myGallery"
-                                            href="assets/images/product-image/zoom-image/3.webp">
-                                            <i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto"
-                                            src="assets/images/product-image/zoom-image/4.webp" alt="">
-                                        <a class="venobox full-preview" data-gall="myGallery"
-                                            href="assets/images/product-image/zoom-image/4.webp">
-                                            <i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto"
-                                            src="assets/images/product-image/zoom-image/5.webp" alt="">
-                                        <a class="venobox full-preview" data-gall="myGallery"
-                                            href="assets/images/product-image/zoom-image/5.webp">
-                                            <i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
+                                    @foreach ($product->images as $item)
+                                        <div class="swiper-slide">
+                                            <img class="img-responsive m-auto"
+                                                src="{{ asset('storage/images/' . $item->image) }}" alt="">
+                                            <a class="venobox full-preview" data-gall="myGallery"
+                                                href="{{ asset('storage/images/' . $item->image) }}">
+                                                <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -179,20 +147,24 @@
                                     </li>
                                 </ul>
                             </div> --}}
-                            <div class="pro-details-quality">
-                                <div class="cart-plus-minus">
-                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
+                            <form class="form-validation" action="{{ route('cart.add') }}" method="post">
+                                <div class="pro-details-quality">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $product->id }}">
+                                    <div class="cart-plus-minus">
+                                        <input class="cart-plus-minus-box" type="text" name="quantity" value="1" />
+                                    </div>
+                                    <div class="pro-details-cart">
+                                        <button class="add-cart"> Thêm Giỏ Hàng</button>
+                                    </div>
+                                    <div class="pro-details-compare-wishlist pro-details-wishlist ">
+                                        <a href="wishlist.html"><i class="pe-7s-like"></i></a>
+                                    </div>
+                                    <div class="pro-details-compare-wishlist pro-details-wishlist ">
+                                        <a href="compare.html"><i class="pe-7s-refresh-2"></i></a>
+                                    </div>
                                 </div>
-                                <div class="pro-details-cart">
-                                    <button class="add-cart"> Thêm Giỏ Hàng</button>
-                                </div>
-                                <div class="pro-details-compare-wishlist pro-details-wishlist ">
-                                    <a href="wishlist.html"><i class="pe-7s-like"></i></a>
-                                </div>
-                                <div class="pro-details-compare-wishlist pro-details-wishlist ">
-                                    <a href="compare.html"><i class="pe-7s-refresh-2"></i></a>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                         <!-- product details description area start -->
                         <div class="description-review-wrapper">
@@ -205,7 +177,7 @@
                             <div class="tab-content description-review-bottom">
                                 <div id="des-details1" class="tab-pane active">
                                     <div class="product-description-wrapper">
-                                        {{ $product->description }}
+                                        {!! $product->description !!}
                                     </div>
                                 </div>
                             </div>
@@ -232,7 +204,7 @@
                     <div class="col">
                         <div class="new-product-slider swiper-container slider-nav-style-1">
                             <div class="swiper-wrapper">
-                                @foreach ($productStock as $item)
+                                @foreach ($related as $item)
                                     <div class="swiper-slide">
                                         <!-- Single Prodect -->
                                         <div class="product">
